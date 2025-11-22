@@ -1,0 +1,27 @@
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore Python cache 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore datasets & cache
+data/hf_cache/
+data/raw/
+data/processed/
+*.arrow
+*.parquet
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+
+# Logs
+*.log

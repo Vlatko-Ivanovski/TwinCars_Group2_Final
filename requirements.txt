@@ -1,0 +1,11 @@
+torch
+torchvision
+datasets
+scikit-learn
+pandas
+matplotlib
+Pillow
+opencv-python
+onnx
+onnxruntime
+tqdm

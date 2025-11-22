@@ -1,0 +1,5 @@
+image_path,pred_label,confidence,pred_make,pred_model,pred_year
+..\data\external\test_4276.jpg,Ferrari 458 Italia Convertible 2012,0.03299827501177788,Ferrari,458 Italia Convertible,2012
+..\data\external\test_4692.jpg,Mitsubishi Lancer Sedan 2012,0.033534422516822815,Mitsubishi,Lancer Sedan,2012
+..\data\external\test_6502.jpg,GMC Savana Van 2012,0.026880046352744102,GMC,Savana Van,2012
+..\data\external\test_6714.jpg,Aston Martin V8 Vantage Convertible 2012,0.11552415043115616,Aston,Martin V8 Vantage Convertible,2012
