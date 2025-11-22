@@ -75,7 +75,7 @@ winCars_Group2_Final/
 
 ---
 
- 📊 Model & Results
+ ## 📊 Model & Results
 
 - **Architecture:** ResNet-18 (pretrained on ImageNet)
 - **Classes:** 196 (make + model + year)
