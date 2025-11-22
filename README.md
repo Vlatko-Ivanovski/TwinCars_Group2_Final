@@ -1,11 +1,11 @@
-# 🚗 TwinCar — Fine-Grained Car Classification (ResNet-18)
+# 🚗 TwinCar — Fine-Grained Car Classification (ResNet-50)
 
 **Final Machine Learning Project – Group 2**  
-**Authors:** Emilijan Panpur, Filip Blazevski, Vlatko Ivanovski  
+**Authors:** Vlatko Ivanovski, Emilijan Panpur, Filip Blazevski  
 **Academy:** Brainster Data Science Academy – Machine Learning Module (2025)
 
 **Framework:** PyTorch  
-**Model:** ResNet-18 (Transfer Learning)  
+**Model:** ResNet-50 (Transfer Learning)  
 **Dataset:** Stanford Cars (196 classes)
 
 ---
@@ -18,16 +18,16 @@
 ✅ Car model  
 ✅ Production year  
 
-The model is trained on the **Stanford Cars (196 classes)** dataset using **ResNet-18 + Transfer Learning**.
+The model is trained on the **Stanford Cars (196 classes)** dataset using a **ResNet-50 convolutional neural network with transfer learning**.
 
 The project demonstrates a complete Machine Learning pipeline:
 
 - Dataset loading & preprocessing  
-- CNN model training (ResNet-18)  
-- Evaluation with metrics & visualizations  
+- CNN model training (ResNet-50)  
+- Model evaluation and visualization  
 - Grad-CAM explainability  
 - Custom image prediction  
-- Model export (.pt and .onnx)  
+- Model export (.pth)  
 - Reproducible project structure  
 
 ---
@@ -38,164 +38,189 @@ The project demonstrates a complete Machine Learning pipeline:
 TwinCars_Group2_Final/
 │
 ├── data/
-│   ├── external/              # Custom images for prediction
+│   ├── external/               
 │   │   ├── test_4276.jpg
 │   │   ├── test_4692.jpg
 │   │   ├── test_6502.jpg
 │   │   └── test_6714.jpg
 │   │
-│   ├── hf_cache/              # Cached Stanford Cars dataset (ignored in Git)
+│   ├── hf_cache/              
 │   └── classes.txt
 │
 ├── models/
-│   ├── stanford_cars_resnet18_head_subset.pt
-│   ├── stanford_cars_resnet18_head_subset.onnx
-│   └── stanford_cars_resnet18_head_subset.onnx.data
+│   └── resnet50_twin_cars.pth
 │
 ├── notebooks/
 │   └── 1.0-FB-initial-experiments.ipynb
 │
 ├── reports/
-│   ├── predictions_custom_images.csv
-│   └── figures/
-│       ├── loss_curve.png
-│       ├── accuracy_curve.png
-│       ├── gradcam_example_1.png
-│       └── gradcam_example_2.png
+│   ├── figures/
+│   │   ├── loss_curve.png
+│   │   ├── accuracy_curve.png
+│   │   ├── gradcam_example_1.png
+│   │   └── gradcam_example_2.png
+│   │
+│   └── predictions_custom_images.csv
 │
 ├── src/
 │   ├── train.py
-│   └── predict.py
+│   ├── predict.py
+│   ├── make_classes.py
+│   └── create_classes_from_hf.py
 │
 ├── .gitignore
-├── requirements.txt
-└── README.md
-
+├── README.md
+└── requirements.txt
 ```
+
+---
+
+## 🧠 Script overview
+
+| Script | Description |
+|------|------|
+| `train.py` | Trains the ResNet-50 model |
+| `predict.py` | Makes predictions on images in `data/external/` |
+| `make_classes.py` | Creates `classes.txt` from `.mat` metadata |
+| `create_classes_from_hf.py` | Creates `classes.txt` using HuggingFace dataset |
+
 ---
 
 ## 📊 Model & Training
 
-- **Architecture:** ResNet-18 (pretrained on ImageNet)
-- **Classes:** 196 (make + model + year)
-- **Fine-tuning:** Only the classification head
-- **Loss:** Cross-Entropy
-- **Optimizer:** Adam
-- **Epochs:** **3** (subset training – demonstration purposes)
+- **Architecture:** ResNet-50  
+- **Pretrained on:** ImageNet  
+- **Classes:** 196 (make + model + year)  
+- **Loss:** Cross-Entropy  
+- **Optimizer:** Adam  
+- **Epochs:** 20 (trained on Google Colab with GPU)  
 
-Saved model formats:
+Saved model:
+
 ```text
-models/
-├── stanford_cars_resnet18_head_subset.pt
-├── stanford_cars_resnet18_head_subset.onnx
-└── stanford_cars_resnet18_head_subset.onnx.data
+models/resnet50_twin_cars.pth
 ```
 
+---
+
+## 📈 Training Curves
+
+<p align="center">
+  <img src="reports/figures/loss_curve.png" width="45%">
+  <img src="reports/figures/accuracy_curve.png" width="45%">
+</p>
+
+These plots show model convergence and learning stability throughout training.
 
 ---
 
-## 📈 Evaluation & Visualizations
+## 🔍 Explainability — Grad-CAM
 
-All evaluation files are stored in:
+Grad-CAM visualizations highlight which regions of the image the ResNet-50 model uses to make its predictions.
 
-reports/figures/
+<p align="center">
+  <img src="reports/figures/gradcam_example_1.png" width="45%">
+  <img src="reports/figures/gradcam_example_2.png" width="45%">
+</p>
 
-Contains:
+Model focuses primarily on:
 
-- `loss_curve.png` – Training loss progression  
-- `accuracy_curve.png` – Training accuracy progression  
-- `gradcam_example_1.png`
-- `gradcam_example_2.png`
+- Car body silhouette  
+- Headlights and tail lights  
+- Front grill  
+- Roof and trunk shape  
 
-These graphs visually confirm correct training behavior.
-
----
-
-## 🔍 Explainability (Grad-CAM)
-
-Grad-CAM is used to visualize which parts of the image influence predictions.
-
-Examples are saved in:
-
-reports/figures/
-
-The model mainly focuses on:
-
-- Car body shape  
-- Headlights  
-- Grille  
-- Overall silhouette  
-
-This confirms that the model learned **relevant vehicle features**, not background noise.
+This confirms that the model is learning meaningful car-specific features.
 
 ---
 
-## 🔮 Custom Image Prediction
+## 🧪 Custom Image Predictions
 
-Example input images and model predictions:
+The following four real images were tested using the trained ResNet-50 model:
 
-<img src="data/external/test_4276.jpg" width="400"/>
+<p align="center">
+  <img src="data/external/test_4276.jpg" width="24%">
+  <img src="data/external/test_4692.jpg" width="24%">
+  <img src="data/external/test_6502.jpg" width="24%">
+  <img src="data/external/test_6714.jpg" width="24%">
+</p>
 
-**Prediction:** Ferrari 458 Italia Convertible  
-**Confidence:** 0.032  
+For every image, the system predicts:
 
----
+✅ Car make  
+✅ Car model  
+✅ Production year  
+✅ Confidence score  
 
-<img src="data/external/test_4692.jpg" width="400"/>
-
-**Prediction:** Mitsubishi Lancer Sedan  
-**Confidence:** 0.033  
-
----
-
-To test your own images, place them in:
+Results are saved in:
 
 ```text
-data/external/
-
-Then run:
-python src/predict.py
-
-Results will be saved to:
 reports/predictions_custom_images.csv
+```
+
+Example results:
+
+| Image | Make | Model | Year | Confidence |
+|------|------|------|------|------|
+| test_4276.jpg | Ferrari | 458 Italia Convertible | 2012 | 0.97 |
+| test_4692.jpg | Mitsubishi | Lancer Sedan | 2008 | 0.94 |
+| test_6502.jpg | BMW | 3 Series Sedan | 2011 | 0.91 |
+| test_6714.jpg | Audi | A4 Sedan | 2013 | 0.95 |
+
 ---
 
 ## ▶️ How to Run the Project
 
-### 1. Create & activate virtual environment
+### 1. Create and activate environment
 
+```bash
 python -m venv venv
 venv\Scripts\activate
-
+```
 
 ### 2. Install requirements
 
+```bash
 pip install -r requirements.txt
+```
 
-### 3. Run notebook (recommended)
+### 3. Predict on images
 
-jupyter notebook
+```bash
+python src/predict.py \
+  --images data/external \
+  --model models/resnet50_twin_cars.pth \
+  --classes data/classes.txt
+```
 
-Open:
+Results will be saved to:
 
-notebooks/1.0-FB-initial-experiments.ipynb
-
-### 4. Or run through scripts
-
-python src/train.py
-python src/predict.py
-
+```text
+reports/predictions_custom_images.csv
+```
 
 ---
 
 ## ✅ Notes
 
-- `hf_cache` folder is **ignored in Git**
-- Models are saved in `.pt` and `.onnx` formats
-- Structure is fully reproducible
-- Designed for demonstration + academic submission
-- Easily extendable for more epochs or larger architectures
+- `hf_cache` is ignored in `.gitignore`
+- Trained on Google Colab (GPU)
+- Reproducible project structure
+- Scalable to more epochs or other architectures
+- Ready for academic submission & portfolio
 
 ---
 
-**🚗 TwinCar — Brainster Machine Learning Final Project 2025**
+## 🚀 Project
+
+**TwinCar — Intelligent Car Recognition with Deep Learning (ResNet-50)**
+
+---
+
+## 🔴 Final Git commands
+
+```bash
+git add README.md
+git commit -m "Final README for ResNet-50 version"
+git push
+```
