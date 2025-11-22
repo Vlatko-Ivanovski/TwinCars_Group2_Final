@@ -20,17 +20,26 @@ def load_class_names(classes_path: Path):
 
 
 def build_model(num_classes: int, ckpt_path: Path, device: torch.device):
-    """Build ResNet-18 classifier and load weights."""
-    model = models.resnet18(pretrained=False)
+
+    model = models.resnet50(pretrained=False)
     in_features = model.fc.in_features
     model.fc = nn.Linear(in_features, num_classes)
 
     state_dict = torch.load(ckpt_path, map_location=device)
-    model.load_state_dict(state_dict)
+
+    # Remove old classifier (1000 ImageNet classes)
+    if "fc.weight" in state_dict:
+        state_dict.pop("fc.weight")
+    if "fc.bias" in state_dict:
+        state_dict.pop("fc.bias")
+
+    model.load_state_dict(state_dict, strict=False)
+
     model.to(device)
     model.eval()
 
     return model
+
 
 
 def parse_label(label_str: str):

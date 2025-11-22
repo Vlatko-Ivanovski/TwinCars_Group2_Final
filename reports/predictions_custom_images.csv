@@ -1,5 +1,5 @@
-image_path,pred_label,confidence,pred_make,pred_model,pred_year
-..\data\external\test_4276.jpg,Ferrari 458 Italia Convertible 2012,0.03299827501177788,Ferrari,458 Italia Convertible,2012
-..\data\external\test_4692.jpg,Mitsubishi Lancer Sedan 2012,0.033534422516822815,Mitsubishi,Lancer Sedan,2012
-..\data\external\test_6502.jpg,GMC Savana Van 2012,0.026880046352744102,GMC,Savana Van,2012
-..\data\external\test_6714.jpg,Aston Martin V8 Vantage Convertible 2012,0.11552415043115616,Aston,Martin V8 Vantage Convertible,2012
+image_path,pred_label,pred_make,pred_model,pred_year,confidence
+data\external\test_4276.jpg,Bentley Continental Supersports Conv. Convertible 2012,Bentley,Continental Supersports Conv. Convertible,2012,0.00782689731568098
+data\external\test_4692.jpg,Bentley Arnage Sedan 2009,Bentley,Arnage Sedan,2009,0.008838537149131298
+data\external\test_6502.jpg,Ram C/V Cargo Van Minivan 2012,Ram,C/V Cargo Van Minivan,2012,0.009520534425973892
+data\external\test_6714.jpg,Audi S5 Convertible 2012,Audi,S5 Convertible,2012,0.007368871942162514
