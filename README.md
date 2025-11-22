@@ -132,33 +132,32 @@ This confirms that the model learned **relevant vehicle features**, not backgrou
 
 ## 🔮 Custom Image Prediction
 
-You can test your own images.
+Example input images and model predictions:
 
-### 1️⃣ Place images here:
+<img src="data/external/test_4276.jpg" width="400"/>
 
+**Prediction:** Ferrari 458 Italia Convertible  
+**Confidence:** 0.032  
+
+---
+
+<img src="data/external/test_4692.jpg" width="400"/>
+
+**Prediction:** Mitsubishi Lancer Sedan  
+**Confidence:** 0.033  
+
+---
+
+To test your own images, place them in:
+
+```text
 data/external/
 
-
-### 2️⃣ Run prediction:
-
+Then run:
 python src/predict.py
 
-
-### 3️⃣ Output file:
-
+Results will be saved to:
 reports/predictions_custom_images.csv
-
-
-Example structure:
-
-| image_path | pred_label | confidence | pred_make | pred_model | pred_year |
-|----------|------------|-----------|---------|----------|---------|
-
-Example:
-
-test_4276.jpg Ferrari 458 Italia Convertible 0.032
-test_4692.jpg Mitsubishi Lancer Sedan 0.033
-
 ---
 
 ## ▶️ How to Run the Project
