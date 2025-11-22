@@ -33,6 +33,7 @@ The project demonstrates a complete Machine Learning pipeline:
 ---
 
 ## 📁 Project Organization
+```text
 winCars_Group2_Final/
 │
 ├── data/
