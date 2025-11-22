@@ -37,41 +37,39 @@ The project demonstrates a complete Machine Learning pipeline:
 TwinCars_Group2_Final/
 │
 ├── data/
-│ ├── external/ # Custom images for prediction
-│ │ ├── test_4276.jpg
-│ │ ├── test_4692.jpg
-│ │ ├── test_6502.jpg
-│ │ └── test_6714.jpg
-│ │
-│ ├── hf_cache/ # Cached Stanford Cars dataset (gitignored)
-│ └── classes.txt
+│   ├── external/              # Custom images for prediction
+│   │   ├── test_4276.jpg
+│   │   ├── test_4692.jpg
+│   │   ├── test_6502.jpg
+│   │   └── test_6714.jpg
+│   │
+│   ├── hf_cache/              # Cached Stanford Cars dataset (ignored in Git)
+│   └── classes.txt
 │
 ├── models/
-│ ├── stanford_cars_resnet18_head_subset.pt
-│ ├── stanford_cars_resnet18_head_subset.onnx
-│ └── stanford_cars_resnet18_head_subset.onnx.data
+│   ├── stanford_cars_resnet18_head_subset.pt
+│   ├── stanford_cars_resnet18_head_subset.onnx
+│   └── stanford_cars_resnet18_head_subset.onnx.data
 │
 ├── notebooks/
-│ └── 1.0-FB-initial-experiments.ipynb
+│   └── 1.0-FB-initial-experiments.ipynb
 │
 ├── reports/
-│ ├── predictions_custom_images.csv
-│ └── figures/
-│ ├── loss_curve.png
-│ ├── accuracy_curve.png
-│ ├── gradcam_example_1.png
-│ └── gradcam_example_2.png
+│   ├── predictions_custom_images.csv
+│   └── figures/
+│       ├── loss_curve.png
+│       ├── accuracy_curve.png
+│       ├── gradcam_example_1.png
+│       └── gradcam_example_2.png
 │
 ├── src/
-│ ├── train.py
-│ └── predict.py
+│   ├── train.py
+│   └── predict.py
 │
 ├── .gitignore
 ├── requirements.txt
 └── README.md
 
-markdown
-Copy code
 
 ---
 
