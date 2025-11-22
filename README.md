@@ -71,7 +71,7 @@ TwinCars_Group2_Final/
 ├── requirements.txt
 └── README.md
 
-
+```
 ---
 
 ## 📊 Model & Training
@@ -84,14 +84,13 @@ TwinCars_Group2_Final/
 - **Epochs:** **3** (subset training – demonstration purposes)
 
 Saved model formats:
-
+```text
 models/
 ├── stanford_cars_resnet18_head_subset.pt
 ├── stanford_cars_resnet18_head_subset.onnx
 └── stanford_cars_resnet18_head_subset.onnx.data
+```
 
-yaml
-Copy code
 
 ---
 
@@ -100,9 +99,6 @@ Copy code
 All evaluation files are stored in:
 
 reports/figures/
-
-yaml
-Copy code
 
 Contains:
 
@@ -123,9 +119,6 @@ Examples are saved in:
 
 reports/figures/
 
-yaml
-Copy code
-
 The model mainly focuses on:
 
 - Car body shape  
@@ -145,22 +138,16 @@ You can test your own images.
 
 data/external/
 
-shell
-Copy code
 
 ### 2️⃣ Run prediction:
 
 python src/predict.py
 
-shell
-Copy code
 
 ### 3️⃣ Output file:
 
 reports/predictions_custom_images.csv
 
-vbnet
-Copy code
 
 Example structure:
 
@@ -172,9 +159,6 @@ Example:
 test_4276.jpg Ferrari 458 Italia Convertible 0.032
 test_4692.jpg Mitsubishi Lancer Sedan 0.033
 
-yaml
-Copy code
-
 ---
 
 ## ▶️ How to Run the Project
@@ -184,37 +168,24 @@ Copy code
 python -m venv venv
 venv\Scripts\activate
 
-shell
-Copy code
 
 ### 2. Install requirements
 
 pip install -r requirements.txt
 
-shell
-Copy code
-
 ### 3. Run notebook (recommended)
 
 jupyter notebook
 
-makefile
-Copy code
-
 Open:
 
 notebooks/1.0-FB-initial-experiments.ipynb
-
-shell
-Copy code
 
 ### 4. Or run through scripts
 
 python src/train.py
 python src/predict.py
 
-yaml
-Copy code
 
 ---
 
