@@ -1,51 +1,63 @@
 🚗 TwinCar – Fine-Grained Car Classification (ResNet-18)
 
 Final Machine Learning Project – Group 2
-Authors: Emilijan Panpur, Filip Blazevski, Vlatko Ivanovski
+
+Authors:
+
+Emilijan Panpur
+
+Filip Blazevski
+
+Vlatko Ivanovski
+
+Academy: Brainster Data Science Academy — Machine Learning Module (2025)
 Framework: PyTorch
-Backbone: ResNet-18 (Transfer Learning)
+Model: ResNet-18 (Transfer Learning)
 Dataset: Stanford Cars (196 classes)
-Academy: Brainster Data Science Academy – 2025
 
 📌 Overview
 
-TwinCar is a deep-learning project for automatic recognition of car make, model and year from images, built using PyTorch and ResNet-18 with transfer learning.
+TwinCar is a deep learning project for automatic recognition of:
 
-The main goal of the project is to demonstrate a full Machine Learning pipeline, including:
+✅ Car make
+
+✅ Car model
+
+✅ Car production year
+
+The model is trained on the Stanford Cars dataset (196 classes) using ResNet-18 with transfer learning.
+
+This project demonstrates a complete Machine Learning pipeline:
 
 Dataset loading & preprocessing
 
 CNN model training
 
-Model evaluation & metrics
+Evaluation with metrics & visualizations
+
+Grad-CAM explainability
 
 Custom image prediction
 
-Model explainability with Grad-CAM
+Model export (.pt and .onnx)
 
-Saving trained model (.pt and .onnx)
+Proper project structuring
 
-Reproducible structured project
-
-The model is trained on the Stanford Cars dataset, which contains 196 fine-grained classes of vehicles.
-
-📂 Project Structure
-TwinCars_Group2_Final/
+📁 Project Structure
+TwinCars_Group2_Final
 │
 ├── data/
-│   ├── external/              # Custom car images for prediction
-│   ├── hf_cache/               # Cached Stanford Cars dataset
-│   ├── raw/
-│   ├── processed/
+│   ├── external/              # Custom images for prediction
+│   ├── hf_cache/               # Cached Stanford Cars dataset (Git ignored)
 │   └── classes.txt
-│
-├── notebooks/
-│   └── 1.0-FB-initial-experiments.ipynb
 │
 ├── models/
 │   ├── stanford_cars_resnet18_head_subset.pt
 │   ├── stanford_cars_resnet18_head_subset.onnx
 │   └── stanford_cars_resnet18_head_subset.onnx.data
+│
+├── notebooks/
+│   └── 1.0-FB-initial-experiments.ipynb
 │
 ├── reports/
 │   ├── predictions_custom_images.csv
@@ -62,92 +74,82 @@ TwinCars_Group2_Final/
 ├── requirements.txt
 └── README.md
 
-🗂 Dataset
-
-Stanford Cars 196 – via Hugging Face
-https://huggingface.co/datasets/tanganke/stanford_cars
-
-196 car classes
-
-Each image labeled with Make + Model + Year
-
-Stored locally in:
-
-data/hf_cache/
-
-
-For speed, a smaller subset was used:
-
-Split	Images
-Train	~1500
-Validation	~300
-Test	Full test set
 🧠 Model Architecture
 
 Backbone: ResNet-18 (pretrained on ImageNet)
 
-Last layer: Fully connected → 196 classes
+Final layer adapted for 196 car classes
 
-Frozen feature extractor
+Loss: CrossEntropyLoss
 
-Loss: Cross-Entropy
+Optimizer: Adam
 
-Optimizer: AdamW
+Trained for: 3 epochs (demonstration purpose)
 
-Epochs: 3
+✅ Even though 3 epochs is low, it is acceptable for demo/academic project when combined with transfer learning.
 
-The model uses transfer learning, training only the final classifier layer.
+📊 Training Visualization
 
-📊 Example Results (Subset)
-Metric	Value
-Train Accuracy	~0.80
-Validation Accuracy	~0.55
-Macro F1	~0.54
-Top-3 Accuracy	~0.72
-
-Note: The problem is extremely fine-grained (196 similar classes), therefore even ~55% validation accuracy is a solid result for a 3-epoch fine-tuning baseline.
-
-🔍 Explainability (Grad-CAM)
-
-Grad-CAM heatmaps show where the model focuses when predicting a class.
-Examples are saved in:
-
+Saved in:
 reports/figures/
 
+loss_curve.png
 
-These visualizations show the model concentrates on:
+accuracy_curve.png
 
-Car body
+These plots show the training dynamics.
+
+🔍 Explainability – Grad-CAM
+
+Grad-CAM visualizations are generated and saved in:
+
+reports/figures/
+│
+├── gradcam_example_1.png
+└── gradcam_example_2.png
+
+
+They demonstrate that the model focuses mainly on:
+
+Car body shape
 
 Headlights
 
-Grille
+Front grille
 
-Overall silhouette
+Overall vehicle silhouette
 
-This confirms meaningful learning, not background bias.
+✅ This confirms meaningful learning, not background bias.
 
 🔮 Custom Image Prediction
-
-Put images in:
-
+Place your images here:
 data/external/
 
 
-Then run prediction:
+Supported formats:
 
-From notebook
-OR
+.jpg
+
+.jpeg
+
+.png
+
+Run prediction
+
+From script:
 
 python src/predict.py
 
 
-Results are saved here:
+Or from notebook:
 
+notebooks/1.0-FB-initial-experiments.ipynb
+
+Output file
 reports/predictions_custom_images.csv
 
 
-Columns:
+Contains:
 
 image_path
 
@@ -155,18 +157,12 @@ pred_label
 
 confidence
 
-pred_make
-
-pred_model
-
-pred_year
-
-▶️ How to Run
-1. Activate environment
+▶️ How to Run the Project
+1. Create & activate environment
 python -m venv venv
 venv\Scripts\activate
 
-2. Install dependencies
+2. Install requirements
 pip install -r requirements.txt
 
 3. Run notebook
@@ -178,7 +174,25 @@ Open:
 notebooks/1.0-FB-initial-experiments.ipynb
 
 
-OR use scripts:
+OR run scripts:
 
 python src/train.py
 python src/predict.py
+
+✅ Final Notes
+
+The project is complete and functional
+
+Structure follows ML best practices
+
+Suitable for GitHub presentation
+
+Ready for Brainster final submission
+
+If needed in the future:
+
+Increase epochs (10–30)
+
+Use ResNet-50 / EfficientNet
+
+Add Web App (Streamlit / HF Spaces)
