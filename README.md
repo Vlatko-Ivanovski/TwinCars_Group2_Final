@@ -220,7 +220,7 @@ reports/predictions_custom_images.csv
 - Trained on Google Colab (GPU)
 - Reproducible project structure
 - Scalable to more epochs or other architectures
-- Ready for academic submission & portfolio
+
 
 ---
 
@@ -228,12 +228,4 @@ reports/predictions_custom_images.csv
 
 **TwinCar — Intelligent Car Recognition with Deep Learning (ResNet-50)**
 
----
 
-## 🔴 Final Git commands
-
-```bash
-git add README.md
-git commit -m "Final README for ResNet-50 version"
-git push
-```
