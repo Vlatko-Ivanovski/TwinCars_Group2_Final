@@ -10,6 +10,19 @@
 
 ---
 
+## 📑 Table of Contents
+
+1. [Overview](#overview)
+2. [Project Organization](#-project-organization)
+3. [Script Overview](#-script-overview)
+4. [Model & Training](#-model--training)
+5. [Training Curves](#-training-curves)
+6. [Explainability — Grad-CAM](#-explainability--grad-cam)
+7. [Custom Image Predictions](#-custom-image-predictions)
+8. [How to Run the Project](#-how-to-run-the-project)
+9. [Notes](#-notes)
+
+---
 ## 📌 Overview
 
 **TwinCar** is a deep-learning project for automatic recognition of:
