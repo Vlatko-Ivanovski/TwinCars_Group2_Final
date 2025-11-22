@@ -34,6 +34,7 @@ The project demonstrates a complete Machine Learning pipeline:
 
 ## 📁 Project Organization
 
+```text
 TwinCars_Group2_Final/
 │
 ├── data/
