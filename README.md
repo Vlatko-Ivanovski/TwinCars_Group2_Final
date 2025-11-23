@@ -87,12 +87,7 @@ std  = [0.229, 0.224, 0.225]
 TwinCars_Group2_Final/
 │
 ├── data/
-│   ├── external/               
-│   │   ├── test_4276.jpg
-│   │   ├── test_4692.jpg
-│   │   ├── test_6502.jpg
-│   │   └── test_6714.jpg
-│   │
+│   ├── external/              
 │   ├── hf_cache/              
 │   └── classes.txt
 │
@@ -104,11 +99,6 @@ TwinCars_Group2_Final/
 │
 ├── reports/
 │   ├── figures/
-│   │   ├── loss_curve.png
-│   │   ├── accuracy_curve.png
-│   │   ├── gradcam_example_1.png
-│   │   └── gradcam_example_2.png
-│   │
 │   └── predictions_custom_images.csv
 │
 ├── src/
@@ -215,6 +205,64 @@ This helps to better understand **what the model is looking at** when identifyin
 - Provides visual explanation of model decisions  
 - Helps verify that the model focuses on the *car*, not the background  
 - Increases trust and interpretability of predictions  
+
+
+---
+## Usage & Inference (ResNet-50)
+
+import torch
+import torch.nn as nn
+from torchvision import models, transforms
+from PIL import Image
+
+CLASSES_PATH = "data/classes.txt"
+MODEL_PATH = "models/resnet50_twin_cars.pth"
+IMG_SIZE = 224
+
+# Load class names
+with open(CLASSES_PATH, "r", encoding="utf-8") as f:
+    class_names = [line.strip() for line in f.readlines() if line.strip()]
+
+NUM_CLASSES = len(class_names)
+
+# Device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Load model
+model = models.resnet50(pretrained=False)
+model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
+
+state_dict = torch.load(MODEL_PATH, map_location=device)
+model.load_state_dict(state_dict)
+model.to(device)
+model.eval()
+
+# Image preprocessing
+transform = transforms.Compose([
+    transforms.Resize((IMG_SIZE, IMG_SIZE)),
+    transforms.ToTensor(),
+    transforms.Normalize(
+        mean=[0.485, 0.456, 0.406],
+        std=[0.229, 0.224, 0.225]
+    )
+])
+
+# Load image
+img = Image.open("your_image.jpg").convert("RGB")
+input_tensor = transform(img).unsqueeze(0).to(device)
+
+# Predict
+with torch.no_grad():
+    outputs = model(input_tensor)
+    probs = torch.softmax(outputs, dim=1)
+    confidence, pred_index = torch.max(probs, 1)
+
+pred_label = class_names[pred_index.item()]
+
+print(f"Prediction: {pred_label}")
+print(f"Confidence: {confidence.item():.2%}")
+
+---
 
 ### How it's used in this project
 
