@@ -152,14 +152,24 @@ models/resnet50_twin_cars.pth
 
 ---
 
-## 📈 Training Curves
+## 📊 Visualizations
+
+Below are key visual outputs from the model training and explainability process.  
+All files are stored in the `/reports/figures` directory.
+
+### 📈 Training Performance
 
 <p align="center">
   <img src="reports/figures/loss_curve.png" width="45%">
   <img src="reports/figures/accuracy_curve.png" width="45%">
 </p>
 
-These graphs show **stable convergence** and successful training of the ResNet-50 model.
+These plots show:
+
+- Decreasing training loss over epochs
+- Increasing classification accuracy
+- Stable convergence of the ResNet-50 model
+
 
 ---
 
