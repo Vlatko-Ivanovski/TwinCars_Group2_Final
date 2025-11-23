@@ -209,9 +209,9 @@ This helps to better understand **what the model is looking at** when identifyin
 ### How it's used in this project
 
 For selected validation images, Grad-CAM heatmaps were generated and saved in:
-
+```text
 reports/figures/
-
+```
 Examples included in this project:
 
 <p align="center">
