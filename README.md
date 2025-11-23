@@ -28,8 +28,9 @@ This project was developed as the final assignment for the **Brainster Data Scie
 8. [Live Demo (HuggingFace Space)](#-live--demo).
 9. [Explainability – Grad-CAM](#-explainability--grad-cam)
 10. [Custom Image Predictions](#-custom-image-predictions)
-11. [How to Run](#-how-to-run)
-12. [Notes](#-notes)
+11. [Example Prediction (Python)](#-example-predictions)
+12. [How to Run](#-how-to-run)
+13. [Notes](#-notes)
 
 ---
 ## 📌 Overview
