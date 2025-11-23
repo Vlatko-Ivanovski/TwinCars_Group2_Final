@@ -1,5 +1,4 @@
-# 🚗 TwinCars — Fine-Grained Car Classification 
-(ResNet-50)
+# 🚗 TwinCars — Fine-Grained Car Classification (ResNet-50)
 
 **TwinCar** is a deep learning–driven system for fine-grained vehicle recognition, capable of identifying a car’s **make, model, and production year** from a single image.  
 Built on a **ResNet-50 backbone** and trained on the **Stanford Cars (196 classes)** dataset, the model leverages **transfer learning**, optimized preprocessing, performance monitoring through training metrics, and **Grad-CAM explainability** to ensure both accuracy and transparency in its predictions.  
