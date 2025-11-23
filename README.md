@@ -78,7 +78,7 @@ The project demonstrates a complete end-to-end Machine Learning workflow::
 ```python
 mean = [0.485, 0.456, 0.406]
 std  = [0.229, 0.224, 0.225]
-
+```
 -----
 
 ## 📁 Project Structure
