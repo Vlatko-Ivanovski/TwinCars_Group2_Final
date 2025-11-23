@@ -1,4 +1,4 @@
-# 🚗 TwinCar — Fine-Grained Car Classification (ResNet-50)
+# 🚗 TwinCars — Fine-Grained Car Classification (ResNet-50)
 
 **Final Machine Learning Project – Group 2**  
 **Authors:** Vlatko Ivanovski, Emilijan Panpur, Filip Blazevski  
