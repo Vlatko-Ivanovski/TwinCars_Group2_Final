@@ -18,10 +18,11 @@
 4. [Model & Training](#-model--training)
 5. [Training Curves](#-training-curves)
 6. [Metrics & Results](#-metrics--results)
-7. [Explainability – Grad-CAM](#-explainability--grad-cam)
-8. [Custom Image Predictions](#-custom-image-predictions)
-9. [How to Run](#-how-to-run)
-10. [Notes](#-notes)
+7. [Live Demo (HuggingFace Space)]
+8. [Explainability – Grad-CAM](#-explainability--grad-cam)
+9. [Custom Image Predictions](#-custom-image-predictions)
+10. [How to Run](#-how-to-run)
+11. [Notes](#-notes)
 
 ---
 ## 📌 Overview
@@ -34,7 +35,7 @@
 
 The model is trained on the **Stanford Cars (196 classes)** dataset using a **ResNet-50 convolutional neural network with transfer learning**.
 
-The project demonstrates a complete Machine Learning pipeline:
+The project demonstrates a complete end-to-end Machine Learning workflow::
 
 - Dataset loading & preprocessing  
 - CNN model training (ResNet-50)  
@@ -144,6 +145,20 @@ These graphs show **stable convergence** and successful training of the ResNet-5
 
 ---
 
+## 🚀 Live Demo (HuggingFace Space)
+
+Try the live demo here:
+
+👉 **https://huggingface.co/spaces/Vlatko-Ivanovski/TwinCar-ResNet50**
+
+Upload a car image and instantly get:
+
+✅ Make  
+✅ Model  
+✅ Production Year  
+✅ Confidence score  
+
+---
 
 ## 🔍 Explainability — Grad-CAM
 
