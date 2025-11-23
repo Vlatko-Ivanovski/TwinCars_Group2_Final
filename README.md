@@ -19,16 +19,17 @@ This project was developed as the final assignment for the **Brainster Data Scie
 ## 📑 Table of Contents
 
 1. [Overview](#-overview)
-2. [Project Structure](#-project-structure)
-3. [Scripts Overview](#-scripts-overview)
-4. [Model & Training](#-model--training)
-5. [Training Curves](#-training-curves)
-6. [Metrics & Results](#-metrics--results)
-7. [Live Demo (HuggingFace Space)](#-live--demo).
-8. [Explainability – Grad-CAM](#-explainability--grad-cam)
-9. [Custom Image Predictions](#-custom-image-predictions)
-10. [How to Run](#-how-to-run)
-11. [Notes](#-notes)
+2. [Data Source & Preprocessing Pipeline](#-data-pipeline)
+3. [Project Structure](#-project-structure)
+4. [Scripts Overview](#-scripts-overview)
+5. [Model & Training](#-model--training)
+6. [Training Curves](#-training-curves)
+7. [Metrics & Results](#-metrics--results)
+8. [Live Demo (HuggingFace Space)](#-live--demo).
+9. [Explainability – Grad-CAM](#-explainability--grad-cam)
+10. [Custom Image Predictions](#-custom-image-predictions)
+11. [How to Run](#-how-to-run)
+12. [Notes](#-notes)
 
 ---
 ## 📌 Overview
@@ -52,6 +53,33 @@ The project demonstrates a complete end-to-end Machine Learning workflow::
 - Reproducible project structure  
 
 ---
+## 🚘 Data Source & Preprocessing Pipeline
+
+**Dataset:** Stanford Cars 196  
+- 196 fine-grained classes (car make + model + year)  
+- 16,185 images (train + test)  
+- Each image is labeled with detailed metadata  
+- Full human-readable labels provided via `cars_meta.mat`  
+
+**Preprocessing pipeline:**
+- Class labels extracted into `classes.txt`
+- Stratified train/validation split (90% / 10%)
+- Validation set created for fair performance evaluation
+- Automatic check for missing or corrupted images
+- **Advanced data augmentation applied during training:**
+  - Random resized crop  
+  - Horizontal flip  
+  - Small rotation  
+  - Color jitter  
+  - Gaussian blur  
+  - (Optional) Mixup & CutMix  
+- **Per-channel normalization using ImageNet statistics:**
+
+```python
+mean = [0.485, 0.456, 0.406]
+std  = [0.229, 0.224, 0.225]
+
+-----
 
 ## 📁 Project Structure
 
