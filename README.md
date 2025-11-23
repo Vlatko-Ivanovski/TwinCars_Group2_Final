@@ -209,7 +209,7 @@ This helps to better understand **what the model is looking at** when identifyin
 
 ---
 ## Usage & Inference (ResNet-50)
-
+```python
 import torch
 import torch.nn as nn
 from torchvision import models, transforms
@@ -261,7 +261,7 @@ pred_label = class_names[pred_index.item()]
 
 print(f"Prediction: {pred_label}")
 print(f"Confidence: {confidence.item():.2%}")
-
+```
 ---
 
 ### How it's used in this project
