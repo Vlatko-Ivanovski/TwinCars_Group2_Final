@@ -196,21 +196,37 @@ Upload a car image and instantly get:
 
 ## 🔍 Explainability — Grad-CAM
 
-Grad-CAM visualizations highlight which regions of the image the ResNet-50 model uses to make its predictions.
+**Grad-CAM (Gradient-weighted Class Activation Mapping)** is a visualization technique
+used to highlight the most important regions of an image that influence the model's prediction.
+
+This helps to better understand **what the model is looking at** when identifying a car.
+
+### Why use Grad-CAM?
+- Provides visual explanation of model decisions  
+- Helps verify that the model focuses on the *car*, not the background  
+- Increases trust and interpretability of predictions  
+
+### How it's used in this project
+
+For selected validation images, Grad-CAM heatmaps were generated and saved in:
+
+reports/figures/
+
+Examples included in this project:
 
 <p align="center">
   <img src="reports/figures/gradcam_example_1.png" width="45%">
   <img src="reports/figures/gradcam_example_2.png" width="45%">
 </p>
 
-Model focuses primarily on:
+The model primarily focuses on:
 
 - Car body silhouette  
-- Headlights and tail lights  
+- Headlights and taillights  
 - Front grill  
 - Roof and trunk shape  
 
-This confirms that the model is learning meaningful car-specific features.
+This confirms that the model learns **relevant car features**, rather than background artifacts.
 
 ---
 
