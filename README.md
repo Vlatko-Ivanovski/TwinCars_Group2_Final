@@ -23,7 +23,7 @@ This project was developed as the final assignment for the **Brainster Data Scie
 3. [Project Structure](#-project-structure)
 4. [Scripts Overview](#-scripts-overview)
 5. [Model & Training](#-model--training)
-6. [Training Curves](#-training-curves)
+6. [Visualizations](#-Visualizations-Visual)
 7. [Metrics & Results](#-metrics--results)
 8. [Live Demo (HuggingFace Space)](#-live--demo).
 9. [Explainability – Grad-CAM](#-explainability--grad-cam)
