@@ -18,7 +18,7 @@
 4. [Model & Training](#-model--training)
 5. [Training Curves](#-training-curves)
 6. [Metrics & Results](#-metrics--results)
-7. [Live Demo (HuggingFace Space)]
+7. [Live Demo (HuggingFace Space)](#-live--demo).
 8. [Explainability – Grad-CAM](#-explainability--grad-cam)
 9. [Custom Image Predictions](#-custom-image-predictions)
 10. [How to Run](#-how-to-run)
