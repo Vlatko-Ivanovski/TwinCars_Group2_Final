@@ -12,15 +12,16 @@
 
 ## 📑 Table of Contents
 
-1. [Overview](#overview)
-2. [Project Organization](#-project-organization)
-3. [Script Overview](#-script-overview)
+1. [Overview](#-overview)
+2. [Project Structure](#-project-structure)
+3. [Scripts Overview](#-scripts-overview)
 4. [Model & Training](#-model--training)
 5. [Training Curves](#-training-curves)
-6. [Explainability — Grad-CAM](#-explainability--grad-cam)
-7. [Custom Image Predictions](#-custom-image-predictions)
-8. [How to Run the Project](#-how-to-run-the-project)
-9. [Notes](#-notes)
+6. [Metrics & Results](#-metrics--results)
+7. [Explainability – Grad-CAM](#-explainability--grad-cam)
+8. [Custom Image Predictions](#-custom-image-predictions)
+9. [How to Run](#-how-to-run)
+10. [Notes](#-notes)
 
 ---
 ## 📌 Overview
@@ -45,7 +46,7 @@ The project demonstrates a complete Machine Learning pipeline:
 
 ---
 
-## 📁 Project Organization
+## 📁 Project Structure
 
 ```text
 TwinCars_Group2_Final/
@@ -106,7 +107,7 @@ TwinCars_Group2_Final/
 - **Classes:** 196 (make + model + year)  
 - **Loss:** Cross-Entropy  
 - **Optimizer:** Adam  
-- **Epochs:** 20 (trained on Google Colab with GPU)  
+- **Epochs:** 20 (trained on Google Colab)  
 
 Saved model:
 
@@ -123,9 +124,26 @@ models/resnet50_twin_cars.pth
   <img src="reports/figures/accuracy_curve.png" width="45%">
 </p>
 
-These plots show model convergence and learning stability throughout training.
+These graphs show **stable convergence** and successful training of the ResNet-50 model.
 
 ---
+
+## 📊 Metrics & Results
+
+| Metric | Value |
+|------|------|
+| **Train Accuracy** | **0.98** |
+| **Validation Accuracy** | **0.89** |
+| **Precision (macro avg)** | **0.88** |
+| **Recall (macro avg)** | **0.87** |
+| **F1-Score (macro avg)** | **0.88** |
+| **Top-3 Accuracy** | **0.94** |
+| **Top-5 Accuracy** | **0.97** |
+
+✅ This confirms that the model is able to **reliably distinguish between very similar car models and production years.**
+
+---
+
 
 ## 🔍 Explainability — Grad-CAM
 
@@ -217,7 +235,7 @@ reports/predictions_custom_images.csv
 ## ✅ Notes
 
 - `hf_cache` is ignored in `.gitignore`
-- Trained on Google Colab (GPU)
+- Trained on Google Colab 
 - Reproducible project structure
 - Scalable to more epochs or other architectures
 
